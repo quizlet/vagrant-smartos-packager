@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # See https://vagrantcloud.com/livinginthepast for SmartOS boxes
-  config.vm.box = "livinginthepast/smartos-base64-13.4.1"
+  config.vm.box = "quizlet/smartos-base64-14.1.0"
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
   #config.vm.network "private_network", ip: "192.168.50.4"
