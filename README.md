@@ -1,12 +1,14 @@
 vagrant-smartos-packager
 ========================
 
+**Forked from [sax/vagrant-smartos-packager](https://github.com/sax/vagrant-smartos-packager)**
+
 Create Vagrant boxes of the latest SmartOS platform image.
 
 This repository includes scripts to help create SmartOS Vagrant
 boxes. The box created will be a Vagrant-capable global zone,
 into which local zones can be installed with the vagrant plugin
-[vagrant-smartos-zones](https://github.com/sax/vagrant-smartos-zones).
+[vagrant-smartos-zones](https://github.com/quizlet/vagrant-smartos-zones).
 
 ## Dependencies
 
@@ -34,7 +36,7 @@ ssh localhost -p 2222 -l root
 ### Creating barebones global zone
 
 ```bash
-curl -k https://raw.github.com/sax/vagrant-smartos-packager/master/bin/prepare_global_zone \
+curl -k https://raw.githubusercontent.com/quizlet/vagrant-smartos-packager/master/bin/prepare_global_zone \
  | bash -s
 ```
 
@@ -46,7 +48,7 @@ between boots, so we have to do some tweaking.
 Now run the following:
 
 ```bash
-curl -k https://raw.github.com/sax/vagrant-smartos-packager/master/bin/prepare_gz_users \
+curl -k https://raw.githubusercontent.com/quizlet/vagrant-smartos-packager/master/bin/prepare_gz_users \
  | bash -s
 ```
 
@@ -56,7 +58,7 @@ user and root to have the password set to `vagrant`.
 Now clean up some scraps before shutting it down and boxifying:
 
 ```bash
-curl -k https://raw.github.com/sax/vagrant-smartos-packager/master/bin/cleanup_gz \
+curl -k https://raw.githubusercontent.com/quizlet/vagrant-smartos-packager/master/bin/cleanup_gz \
  | bash -s
 ```
 
@@ -67,7 +69,7 @@ If you are creating a box with an image already imported, instead of
 the above instructions you can jump straight to:
 
 ```bash
-curl -k https://raw.github.com/sax/vagrant-smartos-packager/master/bin/prepare_for_lz \
+curl -k https://raw.githubusercontent.com/quizlet/vagrant-smartos-packager/master/bin/prepare_for_lz \
   | bash -s [image_uuid]
 ```
 
@@ -75,7 +77,7 @@ curl -k https://raw.github.com/sax/vagrant-smartos-packager/master/bin/prepare_f
 
 If sudo will be required in the global zone, run the following command:
 ```bash
-curl -k https://raw.github.com/sax/vagrant-smartos-packager/master/bin/install_sudo \
+curl -k https://raw.githubusercontent.com/quizlet/vagrant-smartos-packager/master/bin/install_sudo \
  | bash -s
 ```
 
@@ -121,5 +123,4 @@ Vagrant.
 
 ## Contributing
 
-When making a pull request, make sure to `/cc @sax` in the description. Otherwise
-I don't seem to get notified.
+Please submit bugs upstream at [sax/vagrant-smartos-packager](https://github.com/sax/vagrant-smartos-packager)

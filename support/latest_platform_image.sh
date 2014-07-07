@@ -34,7 +34,7 @@ fi
 
 function vbox_machine_folder {
   echo $(VBoxManage list systemproperties \
-            | awk '/^Default.machine.folder/ { print $4 }')
+            | awk '/^Default.machine.folder/ { $1=$2=$3=""; print $0 }' | xargs)
 }
 
 function clear_smartos_sums {
@@ -91,8 +91,8 @@ function download_smartos_ISO {
   mkdir -p "${vboxdir}/${vmname}"
   if [ ! -f "${iso_path}" ]; then
     echo "Downloading ${dlsite}/smartos-${smartos_version}.iso"
-    curl -o ${iso_path} \
-            ${dlsite}/smartos-${smartos_version}.iso
+    curl -o "${iso_path}" \
+            "${dlsite}/smartos-${smartos_version}.iso"
     dl_md5=$(${md5sum} "${iso_path}" \
                | awk '{ print $'${column}' }')
     if [ -z "${dl_md5}" ]; then
